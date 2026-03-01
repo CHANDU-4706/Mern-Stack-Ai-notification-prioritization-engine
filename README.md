@@ -115,19 +115,19 @@ If the Groq API times out, returns a 5xx error, or fails to parse three times co
 ## 🖼️ Visual Evidence
 
 ### System Dashboard
-![Dashboard](./screenshots/dashboard_page_spring_boot_1772359501321.png)
+![Dashboard](./screenshots/dashboard.png)
 *Real-time monitoring of system health, AI classification trends, and event throughput.*
 
 ### Event Simulator
-![Simulator](./screenshots/simulator_page_spring_boot_1772359529545.png)
+![Simulator](./screenshots/dashboard.png)
 *Manual testing interface for injecting notification payloads and observing engine decisions.*
 
 ### Audit Logs & Reasoning
-![Audit Logs](./screenshots/audit_log_page_spring_boot_1772359548183.png)
+![Audit Logs](./screenshots/audit.png)
 *Immutable history of every decision, including AI confidence scores and reasoning strings.*
 
 ### Performance Metrics
-![Metrics](./screenshots/metrics_page_1772359469634.png)
+![Metrics](./screenshots/metrics.png)
 *Detailed breakdown of engine utilization and pipeline latency.*
 
 ---
