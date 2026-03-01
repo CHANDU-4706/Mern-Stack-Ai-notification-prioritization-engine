@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Activity, ShieldAlert, Cpu, CheckCircle } from "lucide-react";
-import axios from "axios";
+import api from "@/lib/api";
 
 export default function DashboardPage() {
     const [healthStatus, setHealthStatus] = useState<any>(null);
@@ -12,7 +12,7 @@ export default function DashboardPage() {
         // Poll the honest health endpoint every 5 seconds
         const checkHealth = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/health");
+                const res = await api.get("/api/health");
                 setHealthStatus(res.data);
             } catch (err) {
                 setHealthStatus({ status: "down" });

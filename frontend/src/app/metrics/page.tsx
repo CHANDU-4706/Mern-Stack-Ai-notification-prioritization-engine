@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from 'recharts';
 import { Loader2 } from "lucide-react";
-import axios from "axios";
+import api from "@/lib/api";
 
 export default function MetricsPage() {
     const [metrics, setMetrics] = useState<any>(null);
@@ -13,7 +13,7 @@ export default function MetricsPage() {
     useEffect(() => {
         const fetchMetrics = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/metrics");
+                const res = await api.get("/api/metrics");
                 setMetrics(res.data.metrics);
             } catch (err) {
                 console.error("Failed to fetch metrics", err);

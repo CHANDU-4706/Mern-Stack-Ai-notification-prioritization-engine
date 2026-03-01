@@ -5,17 +5,17 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search, Loader2 } from "lucide-react";
-import axios from "axios";
+import api from "@/lib/api";
 
-export default function AuditLogPage() {
-    const [logs, setLogs] = useState([]);
+export default function AuditPage() {
+    const [logs, setLogs] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
 
     const fetchLogs = async () => {
         setIsLoading(true);
         try {
-            const res = await axios.get("http://localhost:5000/api/audit-logs");
+            const res = await api.get("/api/audit-logs");
             setLogs(res.data.data);
         } catch (err) {
             console.error("Failed to fetch audit logs:", err);

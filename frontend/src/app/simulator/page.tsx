@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Copy, PlusCircle, History, CheckCircle2, RotateCcw } from "lucide-react";
+import { Copy, PlusCircle, History, CheckCircle2, RotateCcw, ShieldAlert, Clock, Trash, Cpu, Send, Loader2 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import axios from "axios";
+import api from "@/lib/api";
 
 export default function SimulatorPage() {
     const [formData, setFormData] = useState({
@@ -25,10 +25,12 @@ export default function SimulatorPage() {
         setIsSubmitting(true);
         setResult(null);
         try {
-            const response = await axios.post("http://localhost:5000/api/events", formData);
-            setResult(response.data);
+            const res = await api.post("/api/events/ingest", formData);
+            setResult(res.data);
+            alert("Event ingested successfully!");
         } catch (error: any) {
-            setResult({ error: error.response?.data?.error || error.response?.data?.message || error.message });
+            console.error("Ingestion failed", error);
+            alert(error.response?.data?.message || "Failed to ingest event");
         } finally {
             setIsSubmitting(false);
         }
@@ -152,6 +154,3 @@ export default function SimulatorPage() {
         </div>
     );
 }
-
-// Missing imports handled here for speed
-import { ShieldAlert, Clock, Trash, Cpu, Send, Loader2 } from "lucide-react";

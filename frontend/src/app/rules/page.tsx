@@ -6,10 +6,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Trash2, Plus, Loader2 } from "lucide-react";
-import axios from "axios";
+import api from "@/lib/api";
 
 export default function RulesPage() {
-    const [rules, setRules] = useState([]);
+    const [rules, setRules] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
     // New Rule Form State
@@ -21,8 +21,8 @@ export default function RulesPage() {
     const fetchRules = async () => {
         setIsLoading(true);
         try {
-            const res = await axios.get("http://localhost:5000/api/rules");
-            setRules(res.data.data);
+            const res = await api.get("/api/rules");
+            setRules(res.data);
         } catch (err) {
             console.error("Failed to fetch rules", err);
         } finally {
@@ -37,7 +37,7 @@ export default function RulesPage() {
     const handleCreateRule = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/api/rules", {
+            await api.post("/api/rules", {
                 rule_name: ruleName,
                 condition: condition,
                 action: action
@@ -54,7 +54,7 @@ export default function RulesPage() {
 
     const handleToggle = async (id: string, currentStatus: boolean) => {
         try {
-            await axios.patch(`http://localhost:5000/api/rules/${id}/toggle`, {
+            await api.patch(`/api/rules/${id}/toggle`, {
                 is_active: !currentStatus
             });
             fetchRules();
@@ -66,7 +66,7 @@ export default function RulesPage() {
     const handleDelete = async (id: string) => {
         if (!confirm("Are you sure you want to delete this rule?")) return;
         try {
-            await axios.delete(`http://localhost:5000/api/rules/${id}`);
+            await api.delete(`/api/rules/${id}`);
             fetchRules();
         } catch (err) {
             console.error("Failed to delete rule", err);
