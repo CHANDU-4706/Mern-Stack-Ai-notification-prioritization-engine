@@ -11,37 +11,52 @@ This repository contains the Node.js/MongoDB reference implementation of the Cye
 
 ---
 
-## 🛠️ Setup & Running Locally
+## 🛠️ Local Development Setup (Get Running in 2 Minutes)
+
+Follow these exact steps to run the complete MERN engine on your local machine.
 
 ### 1. Prerequisites
-- **Node.js**: v18.x or v20.x
-- **NPM/Yarn**: v9.x+
-- **Database**: MongoDB v6.0+ (Local installation or MongoDB Atlas Cloud URI)
+- **Node.js**: v20 or v18 installed.
+- **Database**: Access to a MongoDB instance (Atlas Cloud URI or Local).
+- **AI Key**: A valid [Groq API Key](https://console.groq.com/).
 
-### 2. Environment Variables (.env)
-Create a `.env` file in the `backend/` directory based on the following required keys:
-- `PORT`: (e.g., `5000`) The local port the Node.js server will run on.
-- `MONGO_URI`: The connection string for your MongoDB database. Get this from MongoDB Atlas or use `mongodb://127.0.0.1:27017/cyepro` for a local instance.
-- `GROQ_API_KEY`: The authentication key for the LLaMA 3.3 model. Get this from the [Groq Console](https://console.groq.com/).
-- `NODE_ENV`: Set to `development` for local or `production` when deployed.
-- `GROQ_MODEL`: Set to `llama-3.3-70b-versatile`.
+### 2. Backend Installation & Start
+```bash
+# Navigate to backend
+cd mern-stack/backend
 
-### 3. Running the Backend
-1. Open a terminal and navigate to the backend folder: `cd mern-stack/backend`
-2. Install dependencies: `npm install`
-3. Start the development server: `npm run dev` (Runs on `http://localhost:5000`)
+# Install all dependencies
+npm install
 
-### 4. Running the Frontend
-1. Open a new terminal and navigate to the frontend folder: `cd mern-stack/frontend`
-2. Install dependencies: `npm install`
-3. Start the React server: `npm run dev` (Runs on `http://localhost:3000`)
+# Create environment file
+touch .env
+# Paste the following into .env (replace with your keys):
+# MONGO_URI=mongodb+srv://...
+# GROQ_API_KEY=gsk_...
+# GROQ_MODEL=llama-3.3-70b-versatile
+# PORT=5000
 
-### 5. Running Both Together
-Ensure both terminal windows run simultaneously. The Next.js frontend is configured to communicate with the REST API running on port 5000. 
+# Start server
+npm run dev
+```
+*The API will be live at `http://localhost:5000`.*
+
+### 3. Frontend Installation & Start
+```bash
+# Navigate to frontend (in a new terminal window)
+cd mern-stack/frontend
+
+# Install all dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+*The Dashboard will be live at `http://localhost:3000`.*
 
 ---
 
-## 💻 Tech Stack
+## 💻 Tech Stack Justification
 
 - **Node.js (v20) + Express (v4.19):** Chosen because its event-driven, non-blocking asynchronous I/O model is perfect for handling thousands of incoming API webhook requests without blocking threads.
 - **MongoDB (Mongoose v8.2):** Chosen because notification payloads (`metadata`, `event_type`) are inherently unstructured and subject to change; a document DB allows schema flexibility without forced migrations.
@@ -100,19 +115,19 @@ If the Groq API times out, returns a 5xx error, or fails to parse three times co
 ## 🖼️ Visual Evidence
 
 ### System Dashboard
-![Dashboard](./dashboard_page_spring_boot_1772359501321.png)
+![Dashboard](./screenshots/dashboard_page_spring_boot_1772359501321.png)
 *Real-time monitoring of system health, AI classification trends, and event throughput.*
 
 ### Event Simulator
-![Simulator](./simulator_page_spring_boot_1772359529545.png)
+![Simulator](./screenshots/simulator_page_spring_boot_1772359529545.png)
 *Manual testing interface for injecting notification payloads and observing engine decisions.*
 
 ### Audit Logs & Reasoning
-![Audit Logs](./audit_log_page_spring_boot_1772359548183.png)
+![Audit Logs](./screenshots/audit_log_page_spring_boot_1772359548183.png)
 *Immutable history of every decision, including AI confidence scores and reasoning strings.*
 
 ### Performance Metrics
-![Metrics](./metrics_page_1772359469634.png)
+![Metrics](./screenshots/metrics_page_1772359469634.png)
 *Detailed breakdown of engine utilization and pipeline latency.*
 
 ---
