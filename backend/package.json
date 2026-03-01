@@ -1,0 +1,45 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@agendajs/mongo-backend": "^4.0.0",
+    "@types/opossum": "^8.1.9",
+    "agenda": "^6.2.3",
+    "axios": "^1.13.6",
+    "bullmq": "^5.70.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "groq-sdk": "^0.37.0",
+    "helmet": "^8.1.0",
+    "mongoose": "^9.2.3",
+    "morgan": "^1.10.1",
+    "opossum": "^9.0.0",
+    "redis": "^5.11.0",
+    "string-similarity": "^4.0.4"
+  },
+  "devDependencies": {
+    "@types/agenda": "^4.1.4",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/mongoose": "^5.11.96",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^25.3.2",
+    "@types/string-similarity": "^4.0.2",
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
