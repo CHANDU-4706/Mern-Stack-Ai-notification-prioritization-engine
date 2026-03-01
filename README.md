@@ -3,9 +3,9 @@
 This repository contains the Node.js/MongoDB reference implementation of the CyePro Notification Prioritization Engine.
 
 ## 🚀 Live Deployments
-- **Frontend (Vercel):** `[INSERT_VERCEL_URL]`
-- **Backend (Render/Railway/AWS):** `[INSERT_BACKEND_URL]`
-- **System Health Endpoint:** `[INSERT_BACKEND_URL]/api/health`
+- **Frontend (Vercel):** [https://cyepro-mern-frontend.vercel.app](https://cyepro-mern-frontend.vercel.app)
+- **Backend (Render):** [https://mern-notification-engine.onrender.com](https://mern-notification-engine.onrender.com)
+- **System Health Endpoint:** [https://mern-notification-engine.onrender.com/api/health](https://mern-notification-engine.onrender.com/api/health)
 
 *Note: The deployed database is seeded. Any reviewer can log into the dashboard immediately without creating an account. The credentials are provided directly on the login screen.*
 
