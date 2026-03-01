@@ -97,6 +97,26 @@ If the Groq API times out, returns a 5xx error, or fails to parse three times co
 
 ---
 
+## 🖼️ Visual Evidence
+
+### System Dashboard
+![Dashboard](./dashboard_page_spring_boot_1772359501321.png)
+*Real-time monitoring of system health, AI classification trends, and event throughput.*
+
+### Event Simulator
+![Simulator](./simulator_page_spring_boot_1772359529545.png)
+*Manual testing interface for injecting notification payloads and observing engine decisions.*
+
+### Audit Logs & Reasoning
+![Audit Logs](./audit_log_page_spring_boot_1772359548183.png)
+*Immutable history of every decision, including AI confidence scores and reasoning strings.*
+
+### Performance Metrics
+![Metrics](./metrics_page_1772359469634.png)
+*Detailed breakdown of engine utilization and pipeline latency.*
+
+---
+
 ## ⚠️ Known Limitations
 
 - **Scalability of Semantic Deduplication:** The Sorensen-Dice string calculation happens perfectly in-memory for the last hour of user data. However, at extreme scale (e.g., millions of events per second per user), this $O(N)$ string comparison will block the Node Event Loop. A production version would compute a MinHash signature at ingestion time and use Locality-Sensitive Hashing (LSH) directly inside the database query.
