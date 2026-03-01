@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Copy, PlusCircle, History, CheckCircle2, RotateCcw, ShieldAlert, Clock, Trash, Cpu, Send, Loader2 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import api from "@/lib/api";
+import axios from "axios";
 
 export default function SimulatorPage() {
     const [formData, setFormData] = useState({
@@ -25,7 +26,8 @@ export default function SimulatorPage() {
         setIsSubmitting(true);
         setResult(null);
         try {
-            const res = await api.post("/api/events/ingest", formData);
+            // ULTIMATE FIXED URL: Bypassing all config layers to hit MERN backend
+            const res = await axios.post("https://mern-notification-engine.onrender.com/api/events/ingest", formData);
             setResult(res.data);
             alert("Event ingested successfully!");
         } catch (error: any) {
