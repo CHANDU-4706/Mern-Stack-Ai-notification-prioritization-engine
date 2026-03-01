@@ -27,6 +27,7 @@ export default function DashboardPage() {
         <div className="space-y-6 max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
+                    <div className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-1">MERN Prioritization Engine</div>
                     <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Live Operations</h1>
                     <p className="text-gray-400">Real-time status of the Notification Prioritization Engine.</p>
                 </div>
